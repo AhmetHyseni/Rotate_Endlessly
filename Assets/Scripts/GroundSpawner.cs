@@ -4,7 +4,7 @@ public class GroundSpawner : MonoBehaviour
 {
     public GameObject groundTile;
     Vector3 nextSpawnPoint;
-
+    //Rakentaa/Spawnaa Tilet
     public void SpawnTile()
     {
         GameObject temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.identity);
