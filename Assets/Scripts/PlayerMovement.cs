@@ -40,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         // K‰ynnist‰‰ pelin uudelleen
+        Invoke("Restart", 2);
+    }
+
+    void Restart()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
