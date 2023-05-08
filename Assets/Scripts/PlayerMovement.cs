@@ -3,13 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     bool alive = true;
 
     public float speed = 5;
-    public Rigidbody rb;
+    [SerializeField] Rigidbody rb;
 
     float horizontalInput;
-    public float horizontalMultiplier = 2;
+    [SerializeField] float horizontalMultiplier = 2;
+
+    public float speedIncreasePerPoint = 0.1f;
 
     private void FixedUpdate()
     {
@@ -19,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
     }
+
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -27,19 +31,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
-        if (transform.position.x < -4)
-        {
-            Die();
-        }
-        if (transform.position.x > 4)
-        {
-            Die();
-        }
     }
 
     public void Die()
     {
-        // K‰ynnist‰‰ pelin uudelleen
+        alive = false;
+        // Restart the game
         Invoke("Restart", 2);
     }
 
