@@ -5,6 +5,7 @@ using UnityEngine;
 public class randomspawn : MonoBehaviour
 {
     public GameObject[] spawnablebuildings;
+    public GameObject dirt;
 
     // Start is called before the first frame update
     void Start()
